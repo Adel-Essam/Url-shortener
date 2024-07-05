@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 require("dotenv").config();
-var app = require("../app");
+var app = require("../index");
 var debug = require("debug")("url-shortener-app:server");
 var http = require("http");
 const mongoose = require("mongoose");
