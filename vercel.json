@@ -9,11 +9,5 @@
 			"src": "*.ejs",
 			"use": "@vercel/static"
 		}
-	],
-	"routes": [
-		{
-			"src": "/(.*)",
-			"dest": "/"
-		}
 	]
 }
