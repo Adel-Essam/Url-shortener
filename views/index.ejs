@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>URL Shortener App</title>
+		<link rel="icon" type="image/x-icon" href="./favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 20px;
+			}
+
+			h1 {
+				text-align: center;
+			}
+
+			.form-container {
+				margin-bottom: 20px;
+			}
+
+			.form-container input[type="text"] {
+				width: 300px;
+				height: 30px;
+				padding: 5px;
+				font-size: 14px;
+			}
+
+			.form-container input[type="submit"] {
+				height: 30px;
+				padding: 5px 15px;
+				font-size: 14px;
+				background-color: #4caf50;
+				color: white;
+				border: none;
+				cursor: pointer;
+			}
+
+			table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+
+			th,
+			td {
+				padding: 8px;
+				text-align: left;
+				border-bottom: 1px solid #ddd;
+			}
+
+			th {
+				background-color: #4caf50;
+				color: white;
+			}
+			.error-message {
+				background-color: #ffcccc; /* Error background color */
+				color: #cc0000; /* Error text color */
+				padding: 10px;
+				border: 1px solid #cc0000;
+				border-radius: 5px;
+				margin-top: 10px; /* Space above error message */
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>URL Shortener</h1>
+
+		<div class="form-container">
+			<form id="urlForm">
+				<label for="urlInput">Enter URL:</label>
+				<input
+					type="text"
+					id="urlInput"
+					name="urlInput"
+					required
+					placeholder="http://this.is.way/too/long?isnt=it"
+				/>
+				<label for="aliasInput">Enter alias:</label>
+				<input
+					type="text"
+					id="aliasInput"
+					name="aliasInput"
+					required
+					placeholder="http://localhost:3000/......"
+				/>
+				<input type="submit" value="Shorten URL" />
+			</form>
+		</div>
+
+		<div class="table-container">
+			<table id="urlTable">
+				<tr>
+					<th>Original URL</th>
+					<th>Shortened URL</th>
+				</tr>
+
+				<% documents.forEach(function(item) { %>
+				<tr>
+					<td><a href="<%= item.url %>"><%= item.url %></a></td>
+					<td><a href="<%= item.shortUrl %>"><%= item.shortUrl %></a></td>
+				</tr>
+				<% }); %>
+			</table>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="./addUrl.js" type="module"></script>
+	</body>
+</html>
